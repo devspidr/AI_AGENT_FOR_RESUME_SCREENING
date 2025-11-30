@@ -75,7 +75,7 @@ The scoring weights can be modified via slider in the UI:
 ---
 
 # 📁 Project Structure
-
+```
 RESUME+JD/
 ├─ agentic/
 │ ├─ agent.py # Main agent entry
@@ -100,7 +100,7 @@ RESUME+JD/
 ├─ requirements.txt # pip dependencies
 └─ README.md # this file
 
-
+```
 
 ---
 
