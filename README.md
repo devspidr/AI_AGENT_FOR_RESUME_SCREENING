@@ -1,47 +1,325 @@
-# Resume Screening Agent (Streamlit + LangChain + LangGraph + OpenAI)
+# 📄 Resume ↔ Job Description Matcher  
+### Agentic AI · Streamlit · Embeddings · Keyword Scoring · PDF Support
 
-This project is an **agentic resume screening system**:
+A fast, lightweight, recruiter-friendly **Resume Screening Agent** built using  
+**Python + Streamlit + Embeddings + Intelligent Parsing**.
 
-- Upload a **Job Description (JD)** and multiple **resumes** (PDF/DOCX).
-- The agent:
-  - Uses **LangChain + OpenAI** to parse the JD into structured JSON:
-    - Role title, must-have / nice-to-have skills, experience, outcomes, risk flags
-  - Parses resumes into sections and basic PII (name, email, phone).
-  - Builds embeddings via **OpenAIEmbeddings** and uses FAISS for semantic similarity.
-  - Computes rich scores:
-    - SkillScore, SemanticScore, ExperienceScore, OutcomeScore, RiskScore,
-      JDMatchScore, CompositeScore
-  - Ranks candidates and shows:
-    - Full ranking and **blind-mode ranking** (PII redacted before scoring)
-    - Must-have skill coverage and missing skills
-    - LLM-generated action (Shortlist / Review / Escalate) and rationale
-  - Logs each run in `data/logs/runs.jsonl` (for audit / replay).
-  - Provides a **bias & fairness** narrative via the LLM.
+Upload a **Job Description (JD)** + multiple **Resumes (PDF/TXT)** →  
+the system parses, extracts candidate information, computes similarity scores,  
+and displays ranked candidates with a beautiful UI.
 
-All of this is driven by a single Streamlit UI. Under the hood, a **LangGraph graph**
-(orchestrator) coordinates steps: JD parsing → resume parsing → embedding →
-scoring → rationales.
+This project is ideal for:
 
-## Tech Stack
+- 🏆 Hackathons  
+- 🎓 AI/ML student portfolio  
+- 🧩 HR prototype tools  
+- 🚀 Resume screening demos  
+- 🤖 Agentic AI learning projects  
 
-- **Frontend**: Streamlit
-- **Agentic Orchestration**: LangGraph
-- **LLM & Embeddings**: LangChain + OpenAI (ChatOpenAI, OpenAIEmbeddings)
-- **Vector Search**: FAISS (via langchain-community)
-- **Storage**: Filesystem (JSONL logs) + persisted uploads
+---
 
-## Setup
+# 🚀 Features
 
-### 1. Create virtualenv and install deps
+## 🧠 Agentic Workflow (Lightweight DAG Flow)
+
+The engine follows a structured pipeline:
+
+parse_jd → parse_resume_text → extract_features → compute_scores → rank → explanation
+
+
+### ✔️ Perception (Data Extraction)
+- Clean extraction from **PDF/TXT**
+- JD → keywords, expectations, responsibilities, skills  
+- Resume → name, location, skills, projects, education, summary
+
+### ✔️ Reasoning  
+- Weighted composite scoring using:
+  - Embedding similarity  
+  - Keyword overlap  
+  - Section understanding  
+  - Resume structure quality  
+
+### ✔️ Action  
+- Rank all candidates  
+- Display summaries  
+- Extract meaningful insights  
+- Generate formatted candidate cards  
+- Provide download-ready PDF reports
+
+### ✔️ Learning  
+- System includes utility layers:
+  - Text cleaning  
+  - Keyword extraction  
+  - Name extraction  
+  - Resume summarization  
+  - JD similarity recalibration  
+
+---
+
+# 📊 Scoring System
+
+Each resume receives multiple computed signals:
+
+| Score Type | Description |
+|-----------|-------------|
+| **EmbeddingScore** | Semantic match between JD and resume |
+| **KeywordScore** | Fuzzy keyword overlap detection |
+| **SkillScore** | Skills extracted from resume vs JD |
+| **CompositeScore** | Weighted combined score for ranking |
+
+The scoring weights can be modified via slider in the UI:
+
+- Weight on Embeddings  
+- Weight on Keywords  
+
+---
+
+# 📁 Project Structure
+
+RESUME+JD/
+├─ agentic/
+│ ├─ agent.py # Main agent entry
+│ ├─ config.py # Weights, global constants
+│ ├─ embedding_manager.py # Embeddings + cosine similarity
+│ ├─ parsers.py # JD + Resume parser wrapper
+│ ├─ jd_parser.py # JD structural extraction
+│ ├─ resume_parser.py # Resume cleanup and section extraction
+│ ├─ prompts.py # Lightweight reasoning templates
+│ ├─ scoring.py # Composite scoring logic
+│ ├─ utils.py # Cleaning, PDF extraction, keyword helper
+│ ├─ graph.py # Lightweight DAG-like flow (no full LangGraph needed)
+│
+├─ app/
+│ ├─ app.py # Streamlit UI
+│
+├─ data/
+│ ├─ logs/ # run logs (optional)
+│ ├─ sample_jds/ # sample files for testing
+│
+├─ .env # environment variables (ignored by git)
+├─ requirements.txt # pip dependencies
+└─ README.md # this file
+
+
+
+---
+
+# 🔧 Installation & Setup
+
+## 1️⃣ Clone this repository
 
 ```bash
-git clone <this-repo> resume-agent
-cd resume-agent
+git clone https://github.com/<your-github-username>/RESUME-JD-Matcher.git
+cd RESUME-JD-Matcher
+```
+
+2️⃣ Create & activate a Virtual Environment
+
+Windows
 
 python -m venv .venv
-# Windows:
-.venv\Scripts\activate
-# Linux/Mac:
-# source .venv/bin/activate
+.\.venv\Scripts\activate
 
+
+macOS / Linux
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+3️⃣ Install dependencies
+
+pip install --upgrade pip
 pip install -r requirements.txt
+
+4️⃣ Environment Variables
+
+Create .env file in project root:
+
+OPENAI_API_KEY=your_key_here
+PYTHONPATH=./
+OPENAI_CHAT_MODEL=gpt-4o-mini
+OPENAI_EMBED_MODEL=text-embedding-3-small
+
+
+⚠️ No quotes should be used.
+
+5️⃣ Run the Streamlit app
+
+cd app
+streamlit run app.py
+
+
+Open browser:
+
+👉 http://localhost:8501
+
+
+🧪 Usage Guide
+Step 1 — Provide Job Description
+
+You can:
+
+Paste in sidebar text area
+
+Or upload JD.pdf / JD.txt
+
+System extracts:
+
+Expected skills
+
+Experience criteria
+
+Responsibilities
+
+Role keywords
+
+Step 2 — Upload Multiple Resumes
+
+Upload multiple PDFs/TXTs
+
+The system extracts:
+
+Candidate name
+
+Skills
+
+Projects
+
+Education
+
+Summary
+
+Contact information
+
+Work-related content
+
+Step 3 — Adjust Weight Slider
+
+You can control:
+
+Embedding weight
+
+Keyword weight
+
+Final score = weighted combination of all signals.
+
+Step 4 — Run the Matcher
+
+What happens:
+
+JD parsed
+
+Resume parsed
+
+Skills extracted
+
+Semantic similarity computed
+
+Composite score calculated
+
+Ranking displayed
+
+Summaries generated
+
+🧾 Output Details
+
+Each ranked candidate card includes:
+
+🟩 Rank + Name + Score
+📝 Quick Summary
+
+Location
+
+Education
+
+Years of experience
+
+Top skills
+
+Top project titles
+
+🧩 Extracted Skills
+
+A curated list of top skills using tech keyword prioritization.
+
+🔍 Scoring Breakdown
+
+Embedding Score
+
+Keyword Score
+
+Composite Score
+
+Section-based signals
+
+📄 Resume Snippet
+
+Shows short clean preview of the resume content.
+
+📥 PDF Download (Optional Feature)
+
+Includes:
+
+Candidate summary
+
+Skills & project insights
+
+JD alignment
+
+Scoring table
+
+🗃 Logs (Optional)
+
+Your data/logs/ folder keeps debug/log files (if enabled).
+
+This helps with:
+
+Experiment tracking
+
+Future ML model training
+
+Debugging scoring pipelines
+
+🧩 Extensibility
+
+You can easily add:
+
+🤝 ATS Integration (API)
+
+🧠 RAG-based resume enrichment
+
+🧭 Multi-agent orchestration
+
+📊 Batch report generator
+
+🏢 Enterprise recruiter dashboard
+
+⚖️ Bias & fairness evaluation
+
+🧬 LLM-powered skill taxonomy clustering
+
+🏁 Why This Project Stands Out
+
+Clean modular architecture
+
+Fast PDF parsing + semantic scoring
+
+Modern UI using Streamlit
+
+Custom summary generation per candidate
+
+Handles multiple resumes simultaneously
+
+Agent-like pipeline (simple DAG)
+
+Professional output formatting
+
+Excellent learning tool for agentic AI
+
+🏆 Credits
+
+Built by Soundar Balaji J
+CSE • AI/ML • NLP • Agentic AI • Resume Intelligence Systems
+
+
+GitHub: https://github.com/devspidr
