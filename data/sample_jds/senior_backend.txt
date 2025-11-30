@@ -1,0 +1,14 @@
+Job Title: Senior Backend Engineer
+
+Responsibilities:
+- Design and implement scalable backend services using Python and REST APIs.
+- Manage relational databases (PostgreSQL) and optimize queries.
+- Collaborate with cross-functional teams to deliver high-quality software.
+- Lead code reviews and mentor junior engineers.
+
+Requirements:
+- 5+ years of backend development experience.
+- Strong proficiency in Python and REST API design.
+- Hands-on experience with PostgreSQL.
+- Familiarity with AWS, Docker, and microservices architecture.
+- Proven track record of delivering measurable outcomes (e.g., reduced latency, improved throughput).

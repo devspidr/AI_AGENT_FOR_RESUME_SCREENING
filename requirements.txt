@@ -1,0 +1,28 @@
+streamlit
+python-dotenv
+
+# LangChain ecosystem
+langchain==0.2.11
+langchain-openai==0.1.7
+langchain-community==0.2.10
+langgraph==0.0.64
+
+# Vector search + parsing
+faiss-cpu
+pdfplumber
+python-docx
+docx2txt
+
+# Utils
+jsonschema
+numpy
+pandas
+
+streamlit
+numpy
+scikit-learn
+pandas
+python-dotenv
+sentence-transformers    # optional but recommended
+
+pdfplumber

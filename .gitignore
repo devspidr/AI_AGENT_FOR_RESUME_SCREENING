@@ -1,0 +1,94 @@
+# ---------- Python / virtualenv ----------
+# virtual environment
+.venv/
+env/
+venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# pip cache / wheels
+pip-log.txt
+pip-delete-this-directory.txt
+*.whl
+
+# ---------- Editor / OS files ----------
+# VSCode
+.vscode/
+# JetBrains
+.idea/
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
+desktop.ini
+
+# ---------- Environment / secrets ----------
+# dotenv file with API keys / secrets
+.env
+.env.*.local
+secrets.json
+
+# ---------- Logs / runtime ----------
+# application logs and runtime files
+*.log
+logs/
+data/logs/
+streamlit.log
+.streamlit/  # Streamlit's local config (may contain credentials) - include if you don't want it in repo
+
+# ---------- Test / cache / coverage ----------
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.cache/
+.ipynb_checkpoints/
+
+# ---------- Databases / storage / binaries ----------
+*.sqlite3
+*.db
+*.db-journal
+*.sqlite
+
+# ---------- Uploaded / sensitive files ----------
+# candidate resumes, test data, or any PII you don't want in git
+data/uploads/
+data/resumes/
+data/*.pdf
+data/*.docx
+data/*.doc
+data/*.pptx
+
+# ---------- Machine learning / models ----------
+models/
+*.pt
+*.pth
+*.bin
+embeddings/
+vectors/
+*.ckpt
+
+# ---------- Optional / tooling ----------
+# Jupyter
+.ipynb_checkpoints
+# local configuration, IDE run configs
+.vscode/
+.vscode/*
+# node modules if you ever add frontend
+node_modules/
+
+# ---------- Misc ----------
+.DS_Store
+*.log
