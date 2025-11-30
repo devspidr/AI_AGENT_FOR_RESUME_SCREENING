@@ -116,43 +116,43 @@ cd RESUME-JD-Matcher
 2️⃣ Create & activate a Virtual Environment
 
 Windows
-
+```
 python -m venv .venv
 .\.venv\Scripts\activate
-
+```
 
 macOS / Linux
-
+```
 python3 -m venv .venv
 source .venv/bin/activate
-
+```
 3️⃣ Install dependencies
-
+```
 pip install --upgrade pip
 pip install -r requirements.txt
-
+```
 4️⃣ Environment Variables
 
 Create .env file in project root:
-
+```
 OPENAI_API_KEY=your_key_here
 PYTHONPATH=./
 OPENAI_CHAT_MODEL=gpt-4o-mini
 OPENAI_EMBED_MODEL=text-embedding-3-small
-
+```
 
 ⚠️ No quotes should be used.
 
 5️⃣ Run the Streamlit app
-
+```
 cd app
 streamlit run app.py
 
-
+```
 Open browser:
-
+```
 👉 http://localhost:8501
-
+```
 
 🧪 Usage Guide
 Step 1 — Provide Job Description
@@ -272,49 +272,9 @@ Scoring table
 
 Your data/logs/ folder keeps debug/log files (if enabled).
 
-This helps with:
 
-Experiment tracking
 
-Future ML model training
 
-Debugging scoring pipelines
-
-🧩 Extensibility
-
-You can easily add:
-
-🤝 ATS Integration (API)
-
-🧠 RAG-based resume enrichment
-
-🧭 Multi-agent orchestration
-
-📊 Batch report generator
-
-🏢 Enterprise recruiter dashboard
-
-⚖️ Bias & fairness evaluation
-
-🧬 LLM-powered skill taxonomy clustering
-
-🏁 Why This Project Stands Out
-
-Clean modular architecture
-
-Fast PDF parsing + semantic scoring
-
-Modern UI using Streamlit
-
-Custom summary generation per candidate
-
-Handles multiple resumes simultaneously
-
-Agent-like pipeline (simple DAG)
-
-Professional output formatting
-
-Excellent learning tool for agentic AI
 
 🏆 Credits
 
