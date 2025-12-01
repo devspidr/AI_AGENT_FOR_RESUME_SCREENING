@@ -153,133 +153,96 @@ Open browser:
 ```
 👉 http://localhost:8501
 ```
+## 🧪 Usage Guide
 
-🧪 Usage Guide
-Step 1 — Provide Job Description
+### **Step 1 — Provide Job Description**
+You can either:
+- Paste the JD text into the sidebar text area  
+**or**
+- Upload `JD.pdf` / `JD.txt`
 
-You can:
+The system automatically extracts:
+- Expected skills  
+- Experience criteria  
+- Responsibilities  
+- Role keywords  
 
-Paste in sidebar text area
+---
 
-Or upload JD.pdf / JD.txt
-
-System extracts:
-
-Expected skills
-
-Experience criteria
-
-Responsibilities
-
-Role keywords
-
-Step 2 — Upload Multiple Resumes
-
-Upload multiple PDFs/TXTs
+### **Step 2 — Upload Multiple Resumes**
+Upload multiple `PDF` / `TXT` resumes.
 
 The system extracts:
+- Candidate name  
+- Skills  
+- Projects  
+- Education  
+- Summary  
+- Contact information  
+- Work-related content  
 
-Candidate name
+---
 
-Skills
-
-Projects
-
-Education
-
-Summary
-
-Contact information
-
-Work-related content
-
-Step 3 — Adjust Weight Slider
-
+### **Step 3 — Adjust Weight Slider**
 You can control:
+- Embedding weight  
+- Keyword weight  
 
-Embedding weight
+**Final Score = weighted combination of all signals**
 
-Keyword weight
+---
 
-Final score = weighted combination of all signals.
+### **Step 4 — Run the Matcher**
+When you run the matcher, the system performs:
+1. JD parsing  
+2. Resume parsing  
+3. Skills extraction  
+4. Semantic similarity computation  
+5. Composite scoring  
+6. Candidate ranking  
+7. Summary generation  
 
-Step 4 — Run the Matcher
+---
 
-What happens:
-
-JD parsed
-
-Resume parsed
-
-Skills extracted
-
-Semantic similarity computed
-
-Composite score calculated
-
-Ranking displayed
-
-Summaries generated
-
-🧾 Output Details
+## 🧾 Output Details
 
 Each ranked candidate card includes:
 
-🟩 Rank + Name + Score
-📝 Quick Summary
+### 🟩 **Rank + Name + Score**
+### 📝 **Quick Summary**
+- Location  
+- Education  
+- Years of experience  
+- Top skills  
+- Top project titles  
 
-Location
+### 🧩 **Extracted Skills**
+Curated list of relevant skills using tech-aware keyword detection.
 
-Education
+### 🔍 **Scoring Breakdown**
+- Embedding Score  
+- Keyword Score  
+- Composite Score  
+- Section-based signals  
 
-Years of experience
+### 📄 **Resume Snippet**
+Clean preview of important resume sections.
 
-Top skills
-
-Top project titles
-
-🧩 Extracted Skills
-
-A curated list of top skills using tech keyword prioritization.
-
-🔍 Scoring Breakdown
-
-Embedding Score
-
-Keyword Score
-
-Composite Score
-
-Section-based signals
-
-📄 Resume Snippet
-
-Shows short clean preview of the resume content.
-
-📥 PDF Download (Optional Feature)
-
+### 📥 **PDF Download (Optional)**
 Includes:
+- Candidate summary  
+- Skills & project insights  
+- JD alignment  
+- Scoring table  
 
-Candidate summary
+### 🗃 **Logs (Optional)**
+If enabled, the `/data/logs/` folder stores debug and processing logs.
 
-Skills & project insights
+---
 
-JD alignment
+## 🏆 Credits
 
-Scoring table
+**Built by:** *Soundar Balaji J*  
+*CSE • AI/ML • NLP • Agentic AI • Resume Intelligence Systems*
 
-🗃 Logs (Optional)
-
-Your data/logs/ folder keeps debug/log files (if enabled).
-
-
-
-
-
-🏆 Credits
-
-Built by Soundar Balaji J
-CSE • AI/ML • NLP • Agentic AI • Resume Intelligence Systems
-
-
-GitHub: https://github.com/devspidr
+**GitHub:** https://github.com/devspidr
